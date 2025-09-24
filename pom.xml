@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pscs.embedly</groupId>
 	<artifactId>embedly-service-integration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>embedly-service-integration</name>
 	<description>Embedly Service Integration</description>
-	<url/>
+	<url />
 	<licenses>
-		<license/>
+		<license />
 	</licenses>
 	<developers>
-		<developer/>
+		<developer />
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection />
+		<developerConnection />
+		<tag />
+		<url />
 	</scm>
 	<properties>
 		<java.version>17</java.version>
@@ -40,7 +41,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20250517</version>
@@ -55,7 +56,7 @@
 			<artifactId>apache-log4j-extras</artifactId>
 			<version>1.0</version>
 		</dependency>
-	<dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
@@ -65,6 +66,20 @@
 			<artifactId>apache-log4j-extras</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+		   <dependency>
+       <groupId>org.apache.httpcomponents.client5</groupId>
+       <artifactId>httpclient5</artifactId>
+       <version>5.4</version> <!-- Use the latest version -->
+   </dependency>
+
+		<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.13.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
