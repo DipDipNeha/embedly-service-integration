@@ -100,6 +100,15 @@ public class EmbedlyServiceCaller {
 		case "RESTRICT_WALLET_BY_ACCOUNT_ID":
 			response = EmbedlyService.getInstance().restrictWalletByAccountId(request);
 			break;
+		case "RESTRICT_WALLET":
+			response = EmbedlyService.getInstance().restrictWallet(request);
+			break;
+		case "GET_BANKS":
+			response = EmbedlyService.getInstance().getAllBanks(request);
+			break;
+		case "BANK_AC_NAME_ENQUIRY":
+			response = EmbedlyService.getInstance().bankAccountNameEnquiry(request);
+			break;
 			
 		default:
 			response.put("status", "Unknown request type");

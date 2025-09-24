@@ -7,6 +7,8 @@
  */
 package com.pscs.embedly.test;
 
+import java.util.UUID;
+
 import org.json.JSONObject;
 
 import com.pscs.embedly.caller.EmbedlyServiceCaller;
@@ -23,7 +25,7 @@ public class EmbedlyServiceTest {
 
 		EmbedlyServiceTest test = new EmbedlyServiceTest();
 //		test.createCustomer();
-		// test.getCustomerDetails();
+//		 test.getCustomerDetails();
 //		test.getCustomerAllDetails();
 //		test.updateCustomerName();
 //		test.updateContactDetails();
@@ -36,7 +38,23 @@ public class EmbedlyServiceTest {
 //		test.getCurrency() ;
 //		test.getWalletRestrictionType();
 //		test.getACClosingReasons();
-		test.walletCreation();
+//		test.walletCreation();
+		//		test.createCorporateCustomerWallet();
+				test.getWalletId();
+//				test.getWalletByAcNumber();
+//				test.walletToWalletTransfer();
+		//		test.getOrgWalletTransactions();
+//				test.walletToWalletRequery();
+//				test.walletHistory();
+		//		test.reverseTransaction();
+		//		test.closeWalletAccount();
+//		        test.restrictWalletByAccountId();
+//		test.restrictWallet();
+		
+		//Payout
+//		test.getBanks();      
+//		test.bankAccountNameEnquiry();
+		
 		
 
 	}
@@ -58,11 +76,11 @@ public class EmbedlyServiceTest {
 			JSONObject jbody = new JSONObject();
 
 			jbody.put("organizationId", "6ca322f8-9547-11f0-a7cf-0274f77d4a81");
-			jbody.put("firstName", "Rahul");
-			jbody.put("lastName", "Sharma");
+			jbody.put("firstName", "Samson");
+			jbody.put("lastName", "Jabo");
 			jbody.put("middleName", "Kumar");
-			jbody.put("emailAddress", "rahul.sharma@example.com");
-			jbody.put("mobileNumber", "+919876543210");
+			jbody.put("emailAddress", "kumardipak@example.com");
+			jbody.put("mobileNumber", "+2348000000001");
 			jbody.put("dob", "1990-05-15");
 			jbody.put("customerTypeId", "f671da57-e281-4b40-965f-a96f4205405e");
 			jbody.put("address", "123 MG Road, Sector 45");
@@ -97,7 +115,7 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+			jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -259,8 +277,8 @@ public class EmbedlyServiceTest {
 
             JSONObject jbody = new JSONObject();
 
-            jbody.put("nin", "A123456789");
-            jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+            jbody.put("nin", "22222222222");
+            jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
             jbody.put("firstname", "Dipak");
             jbody.put("lastname", "Kumar Sharma");
             jbody.put("dob", "1990-05-15");
@@ -290,8 +308,8 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
-			jbody.put("bvn", "22134567890");
+			jbody.put("customerId", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+			jbody.put("bvn", "22222222222");
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
 			EmbedlyServiceCaller service = new EmbedlyServiceCaller();
@@ -470,20 +488,22 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
             //unique id generate
-			jbody.put("id", System.currentTimeMillis()+"");
-			jbody.put("walletGroupId", "default-wallet-group");
-			jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
-			jbody.put("availableBalance", 0);
-			jbody.put("ledgerBalance", 0);
-			jbody.put("walletRestrictionId", "3fa68c68-4203-4487-a56f-222b128a9b56");
-			jbody.put("walletClassificationId", "1");
+			 UUID id = UUID.randomUUID();
+			 
+//			jbody.put("id", id.toString());
+//			jbody.put("walletGroupId", id.toString());
+			jbody.put("customerId", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+//			jbody.put("availableBalance", 0);
+//			jbody.put("ledgerBalance", 0);
+//			jbody.put("walletRestrictionId", "3fa68c68-4203-4487-a56f-222b128a9b56");
+//			jbody.put("walletClassificationId", "1");
 			jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
-			jbody.put("isInternal", true);
-			jbody.put("isDefault", true);
-			jbody.put("name", "Primary Wallet");
-			jbody.put("overdraft", 0);
-			jbody.put("mobNum", "+919876543210");
-			jbody.put("customerTypeId", "f671da57-e281-4b40-965f-a96f4205405e");
+//			jbody.put("isInternal", true);
+//			jbody.put("isDefault", true);
+			jbody.put("name", "Samson Jabo");
+//			jbody.put("overdraft", 0);
+//			jbody.put("mobNum", "+919876543210");
+//			jbody.put("customerTypeId", "f671da57-e281-4b40-965f-a96f4205405e");
 			
 
 			request.put("jbody", jbody);
@@ -514,7 +534,7 @@ public class EmbedlyServiceTest {
 
             JSONObject jbody = new JSONObject();
             //unique id generate
-            jbody.put("customerId", "b1f5e6d2-9629-11f0-a7cf-0274f77d4a81");
+            jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
             jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
             jbody.put("name", "Primary Wallet");
             
@@ -546,7 +566,7 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("walletId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+			jbody.put("walletId", "ea9a5cb9-9955-11f0-a7cf-0274f77d4a81");
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -574,7 +594,7 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("accountNumber", "1234567890");
+			jbody.put("accountNumber", "9710007990");
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -693,11 +713,11 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+			jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
 			jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
-			jbody.put("walletId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+			jbody.put("walletId", "ea9a5cb9-9955-11f0-a7cf-0274f77d4a81");
 			jbody.put("from", "2023-12-31");
-			jbody.put("to", "2024-12-31");
+			jbody.put("to", "2025-12-31");
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -812,7 +832,7 @@ public class EmbedlyServiceTest {
 			request.put("jheader", jheader);
 
 			JSONObject jbody = new JSONObject();
-//			{
+//			
 //				  "id": "<string>",
 //				  "walletGroupId": "<string>",
 //				  "customerId": "<string>",
@@ -827,13 +847,22 @@ public class EmbedlyServiceTest {
 //				  "overdraft": 123,
 //				  "virtualAccount": {},
 //				  "mobNum": "<string>",
-//				  "customerTypeId": "<string>"}
-
-			jbody.put("walletId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
-			jbody.put("restrictionType", "3fa68c68-4203-4487-a56f-222b128a9b56");
-			jbody.put("remarks", "Suspicious activity detected");
-			jbody.put("tellerId", "134");
-			jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+//				  "customerTypeId": "<string>"
+			 UUID id = UUID.randomUUID();
+			jbody.put("id", id.toString());
+			jbody.put("walletGroupId",id.toString());
+			jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+			jbody.put("availableBalance", 0);
+			jbody.put("ledgerBalance", 0);
+			jbody.put("walletRestrictionId", "3fa68c68-4203-4487-a56f-222b128a9b56");
+			jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+			jbody.put("isInternal", true);
+			jbody.put("isDefault", true);
+			jbody.put("name", "Primary Wallet");
+			jbody.put("overdraft", 0);
+			jbody.put("mobNum", "+919876543210");
+			jbody.put("customerTypeId", "f671da57-e281-4b40-965f-a96f4205405e");
+			
 			
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -844,4 +873,59 @@ public class EmbedlyServiceTest {
 			e.printStackTrace();
 		}
 	}
+	// payout service from here 
+	//Get Banks
+	public void getBanks() {
+		try {
+			JSONObject request = new JSONObject();
+			JSONObject response = new JSONObject();
+			JSONObject jheader = new JSONObject();
+
+			jheader.put("userid", "dipak");
+			jheader.put("ip", "133243dsf");
+			jheader.put("timestamp", "1234353454");
+			jheader.put("requestType", "GET_BANKS");
+			jheader.put("channel", "ADMIN");
+			request.put("jheader", jheader);
+
+			JSONObject jbody = new JSONObject();
+
+			request.put("jbody", jbody);
+			System.out.println("Request " + request.toString());
+			EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+			response = service.callService(request);
+			System.out.println("Response " + response.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//Bank Account Name Enquiry
+	public void bankAccountNameEnquiry() {
+		try {
+			JSONObject request = new JSONObject();
+			JSONObject response = new JSONObject();
+			JSONObject jheader = new JSONObject();
+
+			jheader.put("userid", "dipak");
+			jheader.put("ip", "133243dsf");
+			jheader.put("timestamp", "1234353454");
+			jheader.put("requestType", "BANK_AC_NAME_ENQUIRY");
+			jheader.put("channel", "ADMIN");
+			request.put("jheader", jheader);
+
+			JSONObject jbody = new JSONObject();
+
+			jbody.put("accountNumber", "1234567890");
+			jbody.put("bankCode", "001");
+
+			request.put("jbody", jbody);
+			System.out.println("Request " + request.toString());
+			EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+			response = service.callService(request);
+			System.out.println("Response " + response.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

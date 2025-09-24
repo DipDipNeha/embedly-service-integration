@@ -572,7 +572,6 @@ public class EmbedlyService {
 			JSONObject jbody = request.getJSONObject("jbody");
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
-			String walletId = jbody.getString("walletId");
 			
 //			{accountId}/type/{restrictionType}
 			String accountId=jbody.getString("accountId");
@@ -589,6 +588,72 @@ public class EmbedlyService {
 			response.put("respMessage", CoreConstant.ERROR);
 			e.printStackTrace();
 		}
+		return response;
+	}
+
+	public JSONObject restrictWallet(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(), "RESTRICT_WALLET_URL", "",
+					"");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public JSONObject getAllBanks(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_BANKS_URL", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
+		return response;
+		
+	}
+
+	public JSONObject bankAccountNameEnquiry(JSONObject request) {
+	JSONObject response = new JSONObject();
+	try {
+		JSONObject jheader = request.getJSONObject("jheader");
+		JSONObject jbody = request.getJSONObject("jbody");
+		logger.info("Header " + jheader.toString());
+		logger.info("Body " + jbody.toString());
+		response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "BANK_AC_NAME_ENQUIRY_URL",
+				"");
+
+		response.put("respCode", CoreConstant.SUCCESS_CODE);
+		response.put("respMessage", CoreConstant.SUCCESS);
+		
+	}catch (Exception e) {
+		response.put("respCode", CoreConstant.FAILED);
+		response.put("respMessage", CoreConstant.ERROR);
+		e.printStackTrace();
+		return response;
+	}
 		return response;
 	}
 	
