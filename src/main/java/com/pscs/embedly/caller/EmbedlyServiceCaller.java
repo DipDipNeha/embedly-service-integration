@@ -109,7 +109,12 @@ public class EmbedlyServiceCaller {
 		case "BANK_AC_NAME_ENQUIRY":
 			response = EmbedlyService.getInstance().bankAccountNameEnquiry(request);
 			break;
-			
+		case "INTER_BANK_TRANSFER":
+			response = EmbedlyService.getInstance().interBankTransfer(request);
+			break;
+		case "TXN_STATUS_REQUERY":
+			response = EmbedlyService.getInstance().transactionStatusRequery(request);
+			break;
 		default:
 			response.put("status", "Unknown request type");
 			break;

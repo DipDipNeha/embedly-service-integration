@@ -656,5 +656,50 @@ public class EmbedlyService {
 	}
 		return response;
 	}
+
+	public JSONObject interBankTransfer(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "INTER_BANK_TRANSFER_URL",
+					"");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject transactionStatusRequery(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String transactionId = jbody.getString("transactionRef");
+			String params = transactionId;
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "TXN_STATUS_REQUERY_URL",
+					params);
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }

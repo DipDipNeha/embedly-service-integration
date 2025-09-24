@@ -40,7 +40,7 @@ public class EmbedlyServiceTest {
 //		test.getACClosingReasons();
 //		test.walletCreation();
 		//		test.createCorporateCustomerWallet();
-				test.getWalletId();
+//				test.getWalletId();
 //				test.getWalletByAcNumber();
 //				test.walletToWalletTransfer();
 		//		test.getOrgWalletTransactions();
@@ -54,6 +54,9 @@ public class EmbedlyServiceTest {
 		//Payout
 //		test.getBanks();      
 //		test.bankAccountNameEnquiry();
+//		test.interBankTransfer();
+		test.transactionStatusReQuery();
+		
 		
 		
 
@@ -927,5 +930,73 @@ public class EmbedlyServiceTest {
 			e.printStackTrace();
 		}
 	}
+	
+	//Inter Bank Transfer
+public void interBankTransfer() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "INTER_BANK_TRANSFER");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("destinationBankCode", "001");
+        jbody.put("destinationAccountNumber", "1234567890");
+        jbody.put("destinationAccountName", "John Doe");
+        jbody.put("sourceAccountNumber", "9710007990");
+        jbody.put("sourceAccountName", "Jane Smith");
+        jbody.put("remarks", "Test transfer");
+        jbody.put("amount", 5000);
+        jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+        jbody.put("customerTransactionReference", "TXN"+System.currentTimeMillis());
+        jbody.put("webhookUrl", "https://example.com/webhook");
+        
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+//Transaction Status Re-Query
+public void transactionStatusReQuery() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "TXN_STATUS_REQUERY");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("transactionRef", "TXN1677054323457");
+
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+	
+	
 	
 }
