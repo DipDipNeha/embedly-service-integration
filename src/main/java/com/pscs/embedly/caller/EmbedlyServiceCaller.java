@@ -115,6 +115,67 @@ public class EmbedlyServiceCaller {
 		case "TXN_STATUS_REQUERY":
 			response = EmbedlyService.getInstance().transactionStatusRequery(request);
 			break;
+		case "CREATE_NEW_PRODUCT":
+			response = EmbedlyService.getInstance().createNewProduct(request);
+			break;
+		case "GET_ALL_PRODUCT":
+			response = EmbedlyService.getInstance().getAllProducts(request);
+			break;
+		case "UPDATE_EXISTING_PRODUCT":
+			response = EmbedlyService.getInstance().updateExistingProduct(request);
+			break;
+		case "ACTIVATE_PRODUCT_BY_ID":
+			response = EmbedlyService.getInstance().activateProductById(request);
+			break;
+		case "DEACTIVATE_PRODUCT_BY_ID":
+			response = EmbedlyService.getInstance().deactivateProductById(request);
+			break;
+		case "RETRIEVE_LIMIT_OF_PRODUCT_AND_CURRENCY":
+			response = EmbedlyService.getInstance().retrieveLimitOfProductAndCurrency(request);
+			break;
+		case "LIMIT_FOR_CUSTOMER":
+			response = EmbedlyService.getInstance().getLimitForCustomer(request);
+			break;
+		case "DEFAULT_TRANSACTION_LIMITS":
+			response = EmbedlyService.getInstance().defaultTransactionLimits(request);
+			break;
+		case "ADD_LIMIT_CUSTOMER":
+			response = EmbedlyService.getInstance().addLimitForCustomer(request);
+			break;
+		case "UPDATE_DEFAULT_TRANSACTION_LIMIT":
+			response = EmbedlyService.getInstance().updateDefaultTransactionLimit(request);
+			break;
+		case "ADD_LIMIT_TO_EXISTING_PRODUCT":
+			response = EmbedlyService.getInstance().addLimitToExistingProduct(request);
+			break;
+		case "CUSTOMER_LIMIT":
+			response = EmbedlyService.getInstance().setCustomerLimits(request);
+			break;
+		case "GET_ORG_PREFIX_MAPPINGS":
+			response = EmbedlyService.getInstance().getOrgPrefixMappings(request);
+			break;
+		case "CREATE_CHECKOUT_WALLET":
+            response = EmbedlyService.getInstance().createCheckoutWallet(request);
+            break;
+		case "GET_CHECKOUT_WALLETS":
+			response = EmbedlyService.getInstance().getCheckoutWallets(request);
+			break;
+		case "GET_CHECKOUT_WALLET_TRANSACTIONS":
+			response = EmbedlyService.getInstance().getCheckoutWalletTransactions(request);
+			break;
+		case "ISSUE_AFRIGO_CARD":
+			response = EmbedlyService.getInstance().issueAfrigoCard(request);
+			break;
+		case "ACTIVATE_AFRIGO_CARD":
+			response = EmbedlyService.getInstance().activateAfrigoCard(request);
+			break;
+		case "UPDATE_AFRIGO_CARD_INFORMATION":
+			response = EmbedlyService.getInstance().updateAfrigoCardInformation(request);
+			break;
+		case "MAP_PHYSICAL_AFRIGO_CARD_TO_CUSTOMER":
+			response = EmbedlyService.getInstance().mapPhysicalAfrigoCardToCustomer(request);
+			break;
+			
 		default:
 			response.put("status", "Unknown request type");
 			break;

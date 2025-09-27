@@ -38,8 +38,8 @@ public class EmbedlyService {
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
 
-			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
-					"CREATE_INDI_CUSTOMER_URL","");
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_INDI_CUSTOMER_URL",
+					"");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -120,8 +120,8 @@ public class EmbedlyService {
 			JSONObject jbody = request.getJSONObject("jbody");
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
-			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
-					"UPDATE_CONTACTS_URL", jbody.getString("customerId"), "updatecontact");
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(), "UPDATE_CONTACTS_URL",
+					jbody.getString("customerId"), "updatecontact");
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
 
@@ -131,7 +131,7 @@ public class EmbedlyService {
 			e.printStackTrace();
 		}
 		return response;
-		}
+	}
 
 	public JSONObject getCustEkycProperties(JSONObject request) {
 		JSONObject response = new JSONObject();
@@ -152,7 +152,7 @@ public class EmbedlyService {
 		}
 
 		return response;
-		
+
 	}
 
 	public JSONObject uploadCustomerDocument(JSONObject request) {
@@ -162,12 +162,13 @@ public class EmbedlyService {
 			JSONObject jbody = request.getJSONObject("jbody");
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
-			
+
 			String customerId = jbody.getString("customerId");
-			String nin=jbody.getString("nin");
-			String params="?customerId="+customerId+"&nin="+nin;
-			
-			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CUST_KYC_UPGRADE_URL",params);
+			String nin = jbody.getString("nin");
+			String params = "?customerId=" + customerId + "&nin=" + nin;
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CUST_KYC_UPGRADE_URL",
+					params);
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -232,8 +233,7 @@ public class EmbedlyService {
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
 
-			 response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
-					"GET_ALL_COUNTRY_URL", "");
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_ALL_COUNTRY_URL", "");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -276,8 +276,7 @@ public class EmbedlyService {
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
 
-			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CURRENCY_URL",
-					"");
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CURRENCY_URL", "");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -289,6 +288,7 @@ public class EmbedlyService {
 		}
 		return response;
 	}
+
 	public JSONObject walletRestrictionType(JSONObject request) {
 		JSONObject response = new JSONObject();
 		try {
@@ -310,6 +310,7 @@ public class EmbedlyService {
 		}
 		return response;
 	}
+
 	public JSONObject walletAccountClosingReason(JSONObject request) {
 		JSONObject response = new JSONObject();
 		try {
@@ -318,8 +319,8 @@ public class EmbedlyService {
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
 
-			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "WALLET_CLOSING_REASONS_URL",
-					"");
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
+					"WALLET_CLOSING_REASONS_URL", "");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -341,14 +342,12 @@ public class EmbedlyService {
 			logger.info("Body " + jbody.toString());
 
 			String customerId = jbody.getString("customerId");
-			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
-					"CREATE_WALLET_URL", "");
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_WALLET_URL", "");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
-			
-			
-		}catch (Exception e) {
+
+		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
 			e.printStackTrace();
@@ -361,19 +360,18 @@ public class EmbedlyService {
 		JSONObject response = new JSONObject();
 		try {
 			JSONObject jheader = request.getJSONObject("jheader");
-            JSONObject jbody = request.getJSONObject("jbody");
-            logger.info("Header " + jheader.toString());
-            logger.info("Body " + jbody.toString());
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
 
-            String customerId = jbody.getString("customerId");
-            String params=customerId+"/wallets";
-            response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
-                    "CREATE_CORP_CUST_WALLET_URL", params);
+			String customerId = jbody.getString("customerId");
+			String params = customerId + "/wallets";
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
+					"CREATE_CORP_CUST_WALLET_URL", params);
 
-            response.put("respCode", CoreConstant.SUCCESS_CODE);
-            response.put("respMessage", CoreConstant.SUCCESS);
-		}
-		catch (Exception e) {
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
 			e.printStackTrace();
@@ -458,9 +456,10 @@ public class EmbedlyService {
 			String endDate = jbody.getString("endDate");
 			String pageSize = jbody.getString("pageSize");
 			String paeNumber = jbody.getString("pageNumber");
-			String customerId= jbody.getString("customerId");
-			
-			String params="?customerId="+customerId+"&startDate="+startDate+"&endDate="+endDate+"&pageSize="+pageSize+"&pageNumber="+paeNumber+"&onlyOrganization="+onlyOrganization;
+			String customerId = jbody.getString("customerId");
+
+			String params = "?customerId=" + customerId + "&startDate=" + startDate + "&endDate=" + endDate
+					+ "&pageSize=" + pageSize + "&pageNumber=" + paeNumber + "&onlyOrganization=" + onlyOrganization;
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"GET_ORG_WALLET_TRANSACTIONS_URL", params);
 
@@ -474,7 +473,8 @@ public class EmbedlyService {
 		}
 		return null;
 	}
-	//Wallet to Wallet Requery
+
+	// Wallet to Wallet Requery
 	public JSONObject walletToWalletRequery(JSONObject request) {
 		JSONObject response = new JSONObject();
 		try {
@@ -497,7 +497,8 @@ public class EmbedlyService {
 		}
 		return null;
 	}
-	//Wallet History
+
+	// Wallet History
 	public JSONObject getWalletTransactionHistory(JSONObject request) {
 		JSONObject response = new JSONObject();
 		try {
@@ -505,9 +506,8 @@ public class EmbedlyService {
 			JSONObject jbody = request.getJSONObject("jbody");
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
-			
-			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "WALLET_HISTORY_URL",
-					"");
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "WALLET_HISTORY_URL", "");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -519,6 +519,7 @@ public class EmbedlyService {
 		}
 		return null;
 	}
+
 	// Reverse Transaction
 	public JSONObject reverseTransaction(JSONObject request) {
 		JSONObject response = new JSONObject();
@@ -541,6 +542,7 @@ public class EmbedlyService {
 		}
 		return response;
 	}
+
 	// Close Wallet
 	public JSONObject closeWalletAccount(JSONObject request) {
 		JSONObject response = new JSONObject();
@@ -551,8 +553,8 @@ public class EmbedlyService {
 			logger.info("Body " + jbody.toString());
 			String walletId = jbody.getString("walletId");
 			String params = walletId;
-			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
-					"CLOSE_WALLET_ACCOUNT_URL", "");
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CLOSE_WALLET_ACCOUNT_URL",
+					"");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -564,7 +566,8 @@ public class EmbedlyService {
 		}
 		return response;
 	}
-	//Restrict by AccountID
+
+	// Restrict by AccountID
 	public JSONObject restrictWalletByAccountId(JSONObject request) {
 		JSONObject response = new JSONObject();
 		try {
@@ -572,13 +575,13 @@ public class EmbedlyService {
 			JSONObject jbody = request.getJSONObject("jbody");
 			logger.info("Header " + jheader.toString());
 			logger.info("Body " + jbody.toString());
-			
+
 //			{accountId}/type/{restrictionType}
-			String accountId=jbody.getString("accountId");
-			String restrictionType=jbody.getString("restrictionType");
-			String params =params=accountId+"/type/"+restrictionType;
+			String accountId = jbody.getString("accountId");
+			String restrictionType = jbody.getString("restrictionType");
+			String params = params = accountId + "/type/" + restrictionType;
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
-					"RESTRICT_WALLET_BY_ACCOUNT_ID_URL", params,"");
+					"RESTRICT_WALLET_BY_ACCOUNT_ID_URL", params, "");
 
 			response.put("respCode", CoreConstant.SUCCESS_CODE);
 			response.put("respMessage", CoreConstant.SUCCESS);
@@ -632,28 +635,28 @@ public class EmbedlyService {
 			return response;
 		}
 		return response;
-		
+
 	}
 
 	public JSONObject bankAccountNameEnquiry(JSONObject request) {
-	JSONObject response = new JSONObject();
-	try {
-		JSONObject jheader = request.getJSONObject("jheader");
-		JSONObject jbody = request.getJSONObject("jbody");
-		logger.info("Header " + jheader.toString());
-		logger.info("Body " + jbody.toString());
-		response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "BANK_AC_NAME_ENQUIRY_URL",
-				"");
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "BANK_AC_NAME_ENQUIRY_URL",
+					"");
 
-		response.put("respCode", CoreConstant.SUCCESS_CODE);
-		response.put("respMessage", CoreConstant.SUCCESS);
-		
-	}catch (Exception e) {
-		response.put("respCode", CoreConstant.FAILED);
-		response.put("respMessage", CoreConstant.ERROR);
-		e.printStackTrace();
-		return response;
-	}
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
 		return response;
 	}
 
@@ -699,7 +702,470 @@ public class EmbedlyService {
 			response.put("respMessage", CoreConstant.ERROR);
 			e.printStackTrace();
 		}
+		return response;
+	}
+
+	public JSONObject createNewProduct(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_NEW_PRODUCT_URL",
+					"");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
+		return response;
+	}
+
+	public JSONObject getAllProducts(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_ALL_PRODUCT_URL", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
+		return response;
+	}
+
+	public JSONObject updateExistingProduct(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+//			String productId = jbody.getString("productId");
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
+					"UPDATE_EXISTING_PRODUCT_URL", "", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject activateProductById(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String productId = jbody.getString("productId");
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
+					"ACTIVATE_PRODUCT_BY_ID_URL", productId, "");
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+
+		}
+
+		return response;
+	}
+
+	public JSONObject deactivateProductById(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String productId = jbody.getString("productId");
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
+					"DEACTIVATE_PRODUCT_BY_ID_URL", productId, "");
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+
+		}
+		return response;
+	}
+
+	public JSONObject retrieveLimitOfProductAndCurrency(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String productId = jbody.getString("productId");
+			String currencyId = jbody.getString("currencyId");
+			String params = productId + "/currency/" + currencyId;
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
+					"RETRIEVE_LIMIT_OF_PRODUCT_AND_CURRENCY_URL", params);
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+
+		return response;
+	}
+
+	public JSONObject getLimitForCustomer(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String customerId = jbody.getString("customerId");
+//        {productId}/currency/{currencyId}/customer/{customerId}
+			String productId = jbody.getString("productId");
+			String currencyId = jbody.getString("currencyId");
+			String params = productId + "/currency/" + currencyId + "/customer/" + customerId;
+
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "LIMIT_FOR_CUSTOMER_URL",
+					params);
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject defaultTransactionLimits(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
+					"DEFAULT_TRANSACTION_LIMITS_URL", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject addLimitForCustomer(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
+					"ADD_LIMIT_FOR_CUSTOMER_URL", "", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject updateDefaultTransactionLimit(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
+					"UPDATE_DEFAULT_TRANSACTION_LIMIT_URL", "", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
 		return null;
 	}
-	
+
+	public JSONObject addLimitToExistingProduct(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
+					"ADD_LIMIT_TO_EXISTING_PRODUCT_URL", "", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject setCustomerLimits(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(), "CUSTOMER_LIMIT_URL", "",
+					"");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject getOrgPrefixMappings(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String organizationId = jbody.getString("organizationId");
+			int pageNumber = jbody.getInt("page");
+			int pageSize = jbody.getInt("pageSize");
+			String params = "?organizationId=" + organizationId + "&pageNumber=" + pageNumber + "&pageSize=" + pageSize;
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
+					"GET_ORG_PREFIX_MAPPINGS_URL", params);
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject createCheckoutWallet(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
+					"CREATE_CHECKOUT_WALLET_URL", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
+		return response;
+	}
+
+	public JSONObject getCheckoutWallets(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String page=jbody.getString("page");
+			String size=jbody.getString("pageSize");
+			String startDate=jbody.getString("startDate");
+			String endDate=jbody.getString("endDate");
+			String status=jbody.getString("status");
+			String params="?page="+page+"&pageSize="+size+"&startDate="+startDate+"&endDate="+endDate+"&status="+status;
+			
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CHECKOUT_WALLET_URL",
+					params);
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
+		return response;
+	}
+
+	public JSONObject getCheckoutWalletTransactions(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+			String walletId = jbody.getString("walletId");
+			String organizationId = jbody.getString("organizationId");
+			String page=jbody.getString("page");
+			String size=jbody.getString("pageSize");
+			String params = walletId + "/transactions?organizationId=" + organizationId + "&page="+page+"&pageSize="+size;
+
+			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
+					"GET_CHECKOUT_WALLET_TXN_URL", params);
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+			return response;
+		}
+		return response;
+	}
+
+	public JSONObject issueAfrigoCard(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "ISSUE_AFRIGO_CARD_URL",
+					"");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject activateAfrigoCard(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "ACTIVATE_AFRIGO_CARD_URL",
+					"");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
+	public JSONObject updateAfrigoCardInformation(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
+					"UPDATE_AFRIGO_CARD_INFORMATION_URL",  "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public JSONObject mapPhysicalAfrigoCardToCustomer(JSONObject request) {
+		JSONObject response = new JSONObject();
+		try {
+			JSONObject jheader = request.getJSONObject("jheader");
+			JSONObject jbody = request.getJSONObject("jbody");
+			logger.info("Header " + jheader.toString());
+			logger.info("Body " + jbody.toString());
+
+			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
+					"MAP_PHYSICAL_AFRIGO_CARD_TO_CUSTOMER_URL", "");
+
+			response.put("respCode", CoreConstant.SUCCESS_CODE);
+			response.put("respMessage", CoreConstant.SUCCESS);
+			return response;
+		} catch (Exception e) {
+			response.put("respCode", CoreConstant.FAILED);
+			response.put("respMessage", CoreConstant.ERROR);
+			e.printStackTrace();
+		}
+		return response;
+	}
+
 }

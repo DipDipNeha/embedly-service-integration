@@ -55,7 +55,26 @@ public class EmbedlyServiceTest {
 //		test.getBanks();      
 //		test.bankAccountNameEnquiry();
 //		test.interBankTransfer();
-		test.transactionStatusReQuery();
+//		test.transactionStatusReQuery();
+//		test.createNewProduct();
+//		test.getAllProduct();
+//		test.updateExistingProduct();
+//		test.activateProductById();
+//		test.deactivateProductById();
+//		test.retrieveLimitOfProductAndCurrency();
+//		test.limitForCustomer();
+//		test.defaultTransactionLimits();
+//		test.addLimitCustomer();
+//		test.updateDefaultTransactionLimit();
+//		test.addLimitToExistingProduct();
+//		test.getOrgPrefixMappings();
+		
+//		test.createCheckoutWallet();
+//		test.getCheckoutWallets();
+//		test.getCheckoutWalletTransactions();
+		
+		
+		
 		
 		
 		
@@ -997,6 +1016,625 @@ public void transactionStatusReQuery() {
     }
 }
 	
-	
-	
+//Create new product
+public void createNewProduct() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "CREATE_NEW_PRODUCT");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("name", "Samson");
+        jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("description", "Standard savings account");
+        jbody.put("direction", "C");
+        jbody.put("isActive", true);
+        
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+// get all product
+public void getAllProduct() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_ALL_PRODUCT");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+//Update existing Product
+public void updateExistingProduct() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "UPDATE_EXISTING_PRODUCT");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("id", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+        jbody.put("name", "Samson Jabo");
+        jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("description", "Premium savings account");
+        jbody.put("direction", "C");
+        jbody.put("isActive", true);
+        
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+	//Activate Product by its ID
+public void activateProductById() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "ACTIVATE_PRODUCT_BY_ID");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+        
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Deactivate Product by its ID
+public void deactivateProductById() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "DEACTIVATE_PRODUCT_BY_ID");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+        
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Retrieve Limit of a product and Currency
+public void retrieveLimitOfProductAndCurrency() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "RETRIEVE_LIMIT_OF_PRODUCT_AND_CURRENCY");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+     jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+     jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+     jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+     jbody.put("singleTransactionLimit", 100000);
+     jbody.put("frequency", 5);
+     jbody.put("dailyTransactionLimit", 500000);
+     jbody.put("monthlyTransactionLimit", 2000000);
+     jbody.put("id", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Limit for Customer
+public void limitForCustomer() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "LIMIT_FOR_CUSTOMER");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+     jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+     jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+     jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Default transaction limits
+public void defaultTransactionLimits() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "DEFAULT_TRANSACTION_LIMITS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Limit Customer
+public void addLimitCustomer() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "ADD_LIMIT_CUSTOMER");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+     jbody.put("id", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+     jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+     jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+     jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+     jbody.put("singleTransactionLimit", 100000);
+     jbody.put("frequency", 5);
+     jbody.put("dailyTransactionLimit", 500000);
+     jbody.put("monthlyTransactionLimit", 2000000);
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }}
+
+//Update default transaction limit
+public void updateDefaultTransactionLimit() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "UPDATE_DEFAULT_TRANSACTION_LIMIT");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+     jbody.put("id", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+     jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+     jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+     jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+     jbody.put("singleTransactionLimit", 150000);
+     jbody.put("frequency", 10);
+     jbody.put("dailyTransactionLimit", 700000);
+     jbody.put("monthlyTransactionLimit", 2500000);
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Add Limit to existing Product
+public void addLimitToExistingProduct() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "ADD_LIMIT_TO_EXISTING_PRODUCT");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+     jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+     jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+     jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+     jbody.put("singleTransactionLimit", 100000);
+     jbody.put("frequency", 5);
+     jbody.put("dailyTransactionLimit", 500000);
+     jbody.put("monthlyTransactionLimit", 2000000);
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Customer Limit
+//The endpoint allows you to add limits for a specific customer.
+public void customerLimit() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "CUSTOMER_LIMIT");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+     jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+     jbody.put("productId", "5df5e2b2-99b3-11f0-a7cf-0274f77d4a81");
+     jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
+     jbody.put("singleTransactionLimit", 100000);
+     jbody.put("frequency", 5);
+     jbody.put("dailyTransactionLimit", 500000);
+     jbody.put("monthlyTransactionLimit", 2000000);
+     jbody.put("id", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+     
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Get Organization Prefix Mappings
+public void getOrgPrefixMappings() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_ORG_PREFIX_MAPPINGS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("page",1);
+        jbody.put("pageSize",10);
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+//Create Checkout Wallet
+public void createCheckoutWallet() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "CREATE_CHECKOUT_WALLET");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("expectedAmount", 1500);
+        jbody.put("organizationPrefixMappingId", "b1f5e6d2-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("expiryDurationMinutes", 60);
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Get checkout wallets
+public void getCheckoutWallets() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_CHECKOUT_WALLETS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("page","1");
+        jbody.put("pageSize","10");
+        jbody.put("startDate","2023-01-01");
+        jbody.put("endDate","2024-12-31");
+        jbody.put("status","ACTIVE");
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+//Get checkout wallet transactions
+public void getCheckoutWalletTransactions() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_CHECKOUT_WALLET_TRANSACTIONS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("walletId","e9a5cb9-9955-11f0-a7cf-0274f77d4a81");
+        jbody.put("organizationId","a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("page", "1");
+        jbody.put("pageSize", "10");
+     
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Issue Afrigo Card
+public void issueAfrigoCard() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "ISSUE_AFRIGO_CARD");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("accountNumber", "1234567890");
+        jbody.put("pickupMethod", "DELIVERY");
+        jbody.put("cardType", "VIRTUAL");
+        jbody.put("idType", "NATIONAL_ID");
+        jbody.put("idNo", "A12345678");
+        jbody.put("email", "dipak@gmail.com");
+        jbody.put("address", "123 Main St, City, Country");
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Activate Afrigo Card
+public void activateAfrigoCard() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "ACTIVATE_AFRIGO_CARD");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("cardNumber", "1234567890123456");
+        jbody.put("accountNumber", "12/25");
+        jbody.put("pin", "1234");
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Update Afrigo Card Information
+public void updateAfrigoCardInformation() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "UPDATE_AFRIGO_CARD_INFORMATION");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("walletId", "e9a5cb9-9955-11f0-a7cf-0274f77d4a81");
+        jbody.put("cardNumber", "1234567890123456");
+        jbody.put("nameOnCard", "John Doe");
+        jbody.put("oldMobile", "+919876543210");
+        jbody.put("newMobile", "+919876543211");
+        jbody.put("email", "dipak@gmail.com");
+        jbody.put("address", "123 Main St, City, Country");
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Map Physical Afrigo Card to Customer
+public void mapPhysicalAfrigoCardToCustomer() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "MAP_PHYSICAL_AFRIGO_CARD_TO_CUSTOMER");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("accountNumber", "1234567890");
+        jbody.put("cardNumber", "1234567890123456");
+        jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//
 }
