@@ -36,8 +36,8 @@ public class EmbedlyServiceTest {
 //		test.getAllCountry();
 //		test.getAllCustType();
 //		test.getCurrency() ;
-//		test.getWalletRestrictionType();
-//		test.getACClosingReasons();
+		test.getWalletRestrictionType();
+		test.getACClosingReasons();
 //		test.walletCreation();
 		//		test.createCorporateCustomerWallet();
 //				test.getWalletId();
@@ -72,6 +72,7 @@ public class EmbedlyServiceTest {
 //		test.createCheckoutWallet();
 //		test.getCheckoutWallets();
 //		test.getCheckoutWalletTransactions();
+		test.activateAfrigoCard();
 		
 		
 		
