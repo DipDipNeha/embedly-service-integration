@@ -28,9 +28,9 @@ public class EmbedlyServiceTest {
 //		 test.getCustomerDetails();
 //		test.getCustomerAllDetails();
 //		test.updateCustomerName();
-		test.updateContactDetails();
+//		test.updateContactDetails();
 //		test.getCustEkycProperties();// check customer ekyc status
-//		test.customerKycUpgrade(); //nin
+		test.customerKycUpgrade(); //nin
 //		test.primiumEkyc();  //BVN
 //		test.custAddrVerification();
 //		test.getAllCountry();
@@ -300,7 +300,7 @@ public class EmbedlyServiceTest {
 
             JSONObject jbody = new JSONObject();
 
-            jbody.put("nin", "63184876213");
+            jbody.put("nin", "99999999999");
             jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
             jbody.put("firstname", "Bunchu");
             jbody.put("lastname", "Dillon");

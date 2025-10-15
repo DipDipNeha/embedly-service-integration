@@ -22,17 +22,17 @@ public class TrackEmbedlyService {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			conn = ConnectionHelper.connectMySQL();
+			conn = ConnectionHelper.connectPostgres();
 			String sql = "INSERT INTO EMBEDDLY_SER_TRACK_TBL (id,user_id,request_type,request_data,response_data,response_code,response_message,created_date) VALUES (?,?,?,?,?,?,?,NOW())";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, System.currentTimeMillis() + "");
 			pstmt.setString(2, request.getJSONObject("jheader").optString("userId"));
 			pstmt.setString(3, request.getJSONObject("jheader").optString("requestType"));
 			
-			pstmt.setString(4, request.toString());
+			pstmt.setString(4, request.toString().length() > 4000 ? request.toString().substring(0, 4000) : request.toString());
 			if (response == null)
 				response = new JSONObject();
-			pstmt.setString(5, response.toString());
+			pstmt.setString(5, response.toString().length() > 4000 ? response.toString().substring(0, 4000) : response.toString());
 			
 			pstmt.setString(6, response.optString("responseCode"));
 			pstmt.setString(7, response.optString("responseMessage"));
