@@ -41,8 +41,13 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_INDI_CUSTOMER_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+		
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -62,8 +67,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CUSTOMER_DETAILS_URL",
 					customerId);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -83,8 +91,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"GET_ALL_CUSTOMER_DETAILS_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			logger.info("Response " + response.toString());
 
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -102,9 +114,10 @@ public class EmbedlyService {
 			logger.info("Body " + jbody.toString());
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"UPDATE_CUSTOMER_NAME_URL", jbody.getString("customerId"), "updatename");
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
-
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -122,9 +135,12 @@ public class EmbedlyService {
 			logger.info("Body " + jbody.toString());
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(), "UPDATE_CONTACTS_URL",
 					jbody.getString("customerId"), "updatecontact");
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
-
+			
+			System.out.println("Response " + response.toString());
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -144,8 +160,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CUST_EKYC_URL",
 					customerId);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			logger.info("Response " + response.toString());
+			System.out.println("Response " + response.toString());
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -169,10 +189,12 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CUST_KYC_UPGRADE_URL",
 					params);
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
-		} catch (Exception e) {
+			System.out.println("Response " + response.toString());
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
 		}
@@ -191,8 +213,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CUST_PREMIUM_KYC_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -214,8 +239,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
 					"CUST_ADDR_VERIFICATION_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -235,8 +263,13 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_ALL_COUNTRY_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -257,8 +290,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_ALL_CUST_TYPE_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -278,8 +315,13 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CURRENCY_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -300,8 +342,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "WAL_RESTRICTION_TYPE_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -322,8 +368,13 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"WALLET_CLOSING_REASONS_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -344,8 +395,12 @@ public class EmbedlyService {
 			String customerId = jbody.getString("customerId");
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_WALLET_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -369,8 +424,13 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
 					"CREATE_CORP_CUST_WALLET_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -392,8 +452,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_WALLET_ID_URL",
 					params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -413,8 +477,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"GET_WALLET_BY_ACCOUNT_NUMBER_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -433,8 +501,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
 					"WALLET_TO_WALLET_TRANSFER_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -463,8 +535,14 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"GET_ORG_WALLET_TRANSACTIONS_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -487,8 +565,13 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"WALLET_TO_WALLET_REQUERY_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -509,8 +592,13 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "WALLET_HISTORY_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -532,8 +620,13 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "REVERSE_TRANSACTION_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -555,9 +648,13 @@ public class EmbedlyService {
 			String params = walletId;
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CLOSE_WALLET_ACCOUNT_URL",
 					"");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -583,8 +680,13 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"RESTRICT_WALLET_BY_ACCOUNT_ID_URL", params, "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -604,9 +706,13 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(), "RESTRICT_WALLET_URL", "",
 					"");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -625,9 +731,13 @@ public class EmbedlyService {
 			logger.info("Body " + jbody.toString());
 
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_BANKS_URL", "");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -647,9 +757,13 @@ public class EmbedlyService {
 			logger.info("Body " + jbody.toString());
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "BANK_AC_NAME_ENQUIRY_URL",
 					"");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -670,9 +784,13 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "INTER_BANK_TRANSFER_URL",
 					"");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -693,9 +811,13 @@ public class EmbedlyService {
 			String params = transactionId;
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "TXN_STATUS_REQUERY_URL",
 					params);
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
+			
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -715,10 +837,11 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_NEW_PRODUCT_URL",
 					"");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
-
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -738,8 +861,11 @@ public class EmbedlyService {
 
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_ALL_PRODUCT_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -759,9 +885,11 @@ public class EmbedlyService {
 //			String productId = jbody.getString("productId");
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"UPDATE_EXISTING_PRODUCT_URL", "", "");
-
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -781,8 +909,11 @@ public class EmbedlyService {
 			String productId = jbody.getString("productId");
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"ACTIVATE_PRODUCT_BY_ID_URL", productId, "");
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -804,8 +935,11 @@ public class EmbedlyService {
 			String productId = jbody.getString("productId");
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"DEACTIVATE_PRODUCT_BY_ID_URL", productId, "");
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -829,8 +963,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"RETRIEVE_LIMIT_OF_PRODUCT_AND_CURRENCY_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -857,8 +994,10 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "LIMIT_FOR_CUSTOMER_URL",
 					params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -879,8 +1018,10 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"DEFAULT_TRANSACTION_LIMITS_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -901,8 +1042,10 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"ADD_LIMIT_FOR_CUSTOMER_URL", "", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -923,8 +1066,10 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"UPDATE_DEFAULT_TRANSACTION_LIMIT_URL", "", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -945,8 +1090,10 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(),
 					"ADD_LIMIT_TO_EXISTING_PRODUCT_URL", "", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -967,8 +1114,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPatchRequest(jbody.toString(), "CUSTOMER_LIMIT_URL", "",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -992,8 +1142,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"GET_ORG_PREFIX_MAPPINGS_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -1014,8 +1167,12 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
 					"CREATE_CHECKOUT_WALLET_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -1042,8 +1199,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(), "GET_CHECKOUT_WALLET_URL",
 					params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -1069,8 +1229,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendGetRequest(jbody.toString(),
 					"GET_CHECKOUT_WALLET_TXN_URL", params);
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -1091,8 +1254,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "ISSUE_AFRIGO_CARD_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -1113,8 +1279,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "ACTIVATE_AFRIGO_CARD_URL",
 					"");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -1135,8 +1304,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
 					"UPDATE_AFRIGO_CARD_INFORMATION_URL",  "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -1157,8 +1329,11 @@ public class EmbedlyService {
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(),
 					"MAP_PHYSICAL_AFRIGO_CARD_TO_CUSTOMER_URL", "");
 
-			response.put("respCode", CoreConstant.SUCCESS_CODE);
-			response.put("respMessage", CoreConstant.SUCCESS);
+			if (response.getString("respcode").equals("00")) {
+				response.put("respCode", CoreConstant.SUCCESS_CODE);
+				response.put("respMessage", CoreConstant.SUCCESS);
+			}
+			
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);

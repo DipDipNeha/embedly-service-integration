@@ -28,8 +28,12 @@ public class TrackEmbedlyService {
 			pstmt.setString(1, System.currentTimeMillis() + "");
 			pstmt.setString(2, request.getJSONObject("jheader").optString("userId"));
 			pstmt.setString(3, request.getJSONObject("jheader").optString("requestType"));
+			
 			pstmt.setString(4, request.toString());
+			if (response == null)
+				response = new JSONObject();
 			pstmt.setString(5, response.toString());
+			
 			pstmt.setString(6, response.optString("responseCode"));
 			pstmt.setString(7, response.optString("responseMessage"));
 			pstmt.executeUpdate();

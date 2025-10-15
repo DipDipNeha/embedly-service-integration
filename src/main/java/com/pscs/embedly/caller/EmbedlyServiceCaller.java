@@ -9,7 +9,6 @@ package com.pscs.embedly.caller;
 
 import org.json.JSONObject;
 
-import com.pscs.embedly.db.TrackEmbedlyService;
 import com.pscs.embedly.services.EmbedlyService;
 
 /**
@@ -193,8 +192,8 @@ public class EmbedlyServiceCaller {
 	}
 		finally {
 			// Track the service request and response
-             TrackEmbedlyService trackService = new TrackEmbedlyService();
-             trackService.trackService(request, response);
+//             TrackEmbedlyService trackService = new TrackEmbedlyService();
+//             trackService.trackService(request, response);
 		}
 		return response;
 	}

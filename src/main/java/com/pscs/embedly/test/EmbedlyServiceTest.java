@@ -28,19 +28,19 @@ public class EmbedlyServiceTest {
 //		 test.getCustomerDetails();
 //		test.getCustomerAllDetails();
 //		test.updateCustomerName();
-//		test.updateContactDetails();
-//		test.getCustEkycProperties();
-//		test.customerKycUpgrade();
-//		test.primiumEkyc();
+		test.updateContactDetails();
+//		test.getCustEkycProperties();// check customer ekyc status
+//		test.customerKycUpgrade(); //nin
+//		test.primiumEkyc();  //BVN
 //		test.custAddrVerification();
 //		test.getAllCountry();
 //		test.getAllCustType();
 //		test.getCurrency() ;
-		test.getWalletRestrictionType();
-		test.getACClosingReasons();
+//		test.getWalletRestrictionType();
+//		test.getACClosingReasons();
 //		test.walletCreation();
 		//		test.createCorporateCustomerWallet();
-//				test.getWalletId();
+//				test.getWalletId();   ///view wallet balance by walletId
 //				test.getWalletByAcNumber();
 //				test.walletToWalletTransfer();
 		//		test.getOrgWalletTransactions();
@@ -72,7 +72,7 @@ public class EmbedlyServiceTest {
 //		test.createCheckoutWallet();
 //		test.getCheckoutWallets();
 //		test.getCheckoutWalletTransactions();
-		test.activateAfrigoCard();
+//		test.activateAfrigoCard();
 		
 		
 		
@@ -102,14 +102,14 @@ public class EmbedlyServiceTest {
 			jbody.put("firstName", "Samson");
 			jbody.put("lastName", "Jabo");
 			jbody.put("middleName", "Kumar");
-			jbody.put("emailAddress", "kumardipak@example.com");
-			jbody.put("mobileNumber", "+2348000000001");
+			jbody.put("emailAddress", "kumardipakkl@example.com");
+			jbody.put("mobileNumber", "+2348000000003");
 			jbody.put("dob", "1990-05-15");
 			jbody.put("customerTypeId", "f671da57-e281-4b40-965f-a96f4205405e");
 			jbody.put("address", "123 MG Road, Sector 45");
-			jbody.put("city", "Bengaluru");
+			jbody.put("city", "Lagos");
 			jbody.put("countryId", "c15ad9ae-c4d7-4342-b70f-de5508627e3b");
-			jbody.put("alias", "rahul90");
+			jbody.put("alias", "samson");
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
 
@@ -270,7 +270,7 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+			jbody.put("customerId", "15974cb2-a90a-11f0-a7cf-0274f77d4a81");
 			
 
 			request.put("jbody", jbody);
@@ -300,11 +300,11 @@ public class EmbedlyServiceTest {
 
             JSONObject jbody = new JSONObject();
 
-            jbody.put("nin", "22222222222");
+            jbody.put("nin", "63184876213");
             jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
-            jbody.put("firstname", "Dipak");
-            jbody.put("lastname", "Kumar Sharma");
-            jbody.put("dob", "1990-05-15");
+            jbody.put("firstname", "Bunchu");
+            jbody.put("lastname", "Dillon");
+            jbody.put("dob", "1991-08-17");
             request.put("jbody", jbody);
             System.out.println("Request " + request.toString());
             EmbedlyServiceCaller service = new EmbedlyServiceCaller();
@@ -316,6 +316,7 @@ public class EmbedlyServiceTest {
         }
 	}
 	
+	//premium ekyc - bvn
 	public void primiumEkyc() {
 		try {
 			JSONObject request = new JSONObject();
@@ -343,6 +344,7 @@ public class EmbedlyServiceTest {
 			e.printStackTrace();
 		}
 	}
+	//Customer Address Verification (Tier 3 upgrade)
 	public void custAddrVerification() {
 		try {
 			JSONObject request = new JSONObject();
