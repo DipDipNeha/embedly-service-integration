@@ -55,7 +55,7 @@ public class EmbedlyService {
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
-			logger.error("Service Response  " + response.toString());
+			logger.error("Service Error  " + response.toString());
 		}
 
 		return response;
