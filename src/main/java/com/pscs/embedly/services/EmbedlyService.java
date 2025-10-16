@@ -35,9 +35,9 @@ public class EmbedlyService {
 		try {
 			JSONObject jheader = request.getJSONObject("jheader");
 			JSONObject jbody = request.getJSONObject("jbody");
-			logger.info("Header " + jheader.toString());
-			logger.info("Body " + jbody.toString());
-
+//			logger.info("Header " + jheader.toString());
+//			logger.info("Body " + jbody.toString());
+			logger.info("Service Request  " + request);
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_INDI_CUSTOMER_URL",
 					"");
 
@@ -50,11 +50,12 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.FAILED);
 				response.put("respMessage", CoreConstant.ERROR);
 			}
-			
+			logger.info("Service Response  " + response);
 			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
+			logger.error("Service Response  " + response.toString());
 		}
 
 		return response;
