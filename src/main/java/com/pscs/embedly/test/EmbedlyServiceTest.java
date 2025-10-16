@@ -30,7 +30,7 @@ public class EmbedlyServiceTest {
 //		test.updateCustomerName();
 //		test.updateContactDetails();
 //		test.getCustEkycProperties();// check customer ekyc status
-		test.customerKycUpgrade(); //nin
+//		test.customerKycUpgrade(); //nin
 //		test.primiumEkyc();  //BVN
 //		test.custAddrVerification();
 //		test.getAllCountry();
@@ -38,7 +38,7 @@ public class EmbedlyServiceTest {
 //		test.getCurrency() ;
 //		test.getWalletRestrictionType();
 //		test.getACClosingReasons();
-//		test.walletCreation();
+		test.walletCreation();
 		//		test.createCorporateCustomerWallet();
 //				test.getWalletId();   ///view wallet balance by walletId
 //				test.getWalletByAcNumber();
@@ -517,7 +517,7 @@ public class EmbedlyServiceTest {
 			 
 //			jbody.put("id", id.toString());
 //			jbody.put("walletGroupId", id.toString());
-			jbody.put("customerId", "6828b59b-9955-11f0-a7cf-0274f77d4a81");
+			jbody.put("customerId", "19a43747-a9d2-11f0-a7cf-0274f77d4a81");
 //			jbody.put("availableBalance", 0);
 //			jbody.put("ledgerBalance", 0);
 //			jbody.put("walletRestrictionId", "3fa68c68-4203-4487-a56f-222b128a9b56");
@@ -525,7 +525,7 @@ public class EmbedlyServiceTest {
 			jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
 //			jbody.put("isInternal", true);
 //			jbody.put("isDefault", true);
-			jbody.put("name", "Samson Jabo");
+			jbody.put("name", "NEW");
 //			jbody.put("overdraft", 0);
 //			jbody.put("mobNum", "+919876543210");
 //			jbody.put("customerTypeId", "f671da57-e281-4b40-965f-a96f4205405e");

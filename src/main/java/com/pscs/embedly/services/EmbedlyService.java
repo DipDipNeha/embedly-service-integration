@@ -46,6 +46,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 			
 		} catch (Exception e) {
@@ -70,6 +74,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 		} catch (Exception e) {
@@ -94,6 +101,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			logger.info("Response " + response.toString());
@@ -117,6 +127,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -140,6 +153,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -163,6 +179,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			logger.info("Response " + response.toString());
 			System.out.println("Response " + response.toString());
@@ -193,6 +212,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -216,6 +238,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -242,6 +267,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -268,7 +296,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -294,7 +325,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -319,6 +353,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -345,6 +382,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -372,6 +412,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -395,11 +438,17 @@ public class EmbedlyService {
 			String customerId = jbody.getString("customerId");
 			response = EmbedlyPostingService.getInstance().sendPostRequest(jbody.toString(), "CREATE_WALLET_URL", "");
 
+			
+			logger.info("Response " + response.toString());
+			System.out.println("Response " + response.toString());
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 
 		} catch (Exception e) {
@@ -429,7 +478,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -455,6 +507,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -481,7 +536,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -504,6 +562,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -539,6 +600,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -568,6 +632,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -595,6 +662,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -623,6 +693,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -652,7 +725,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 			
 			return response;
@@ -683,6 +759,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -710,7 +789,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 			
 			return response;
@@ -734,6 +816,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -761,7 +846,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 			
 
@@ -788,7 +876,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			
 			
 			return response;
@@ -814,6 +905,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			
@@ -841,7 +935,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
 			response.put("respMessage", CoreConstant.ERROR);
@@ -864,6 +961,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 		} catch (Exception e) {
@@ -888,6 +988,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -913,7 +1016,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -938,6 +1044,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -966,6 +1075,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -997,6 +1109,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			return response;
 		} catch (Exception e) {
@@ -1021,6 +1136,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			return response;
 		} catch (Exception e) {
@@ -1045,6 +1163,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			return response;
 		} catch (Exception e) {
@@ -1069,6 +1190,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			return response;
 		} catch (Exception e) {
@@ -1076,7 +1200,7 @@ public class EmbedlyService {
 			response.put("respMessage", CoreConstant.ERROR);
 			e.printStackTrace();
 		}
-		return null;
+		return response;
 	}
 
 	public JSONObject addLimitToExistingProduct(JSONObject request) {
@@ -1093,6 +1217,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			return response;
 		} catch (Exception e) {
@@ -1118,7 +1245,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -1145,6 +1275,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -1171,6 +1304,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 		} catch (Exception e) {
@@ -1202,6 +1338,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 		} catch (Exception e) {
@@ -1232,6 +1371,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 		} catch (Exception e) {
@@ -1257,6 +1399,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -1283,7 +1428,10 @@ public class EmbedlyService {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
 			}
-			
+			else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
+			}
 			return response;
 		} catch (Exception e) {
 			response.put("respCode", CoreConstant.FAILED);
@@ -1307,6 +1455,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
@@ -1315,7 +1466,7 @@ public class EmbedlyService {
 			response.put("respMessage", CoreConstant.ERROR);
 			e.printStackTrace();
 		}
-		return null;
+		return response;
 	}
 
 	public JSONObject mapPhysicalAfrigoCardToCustomer(JSONObject request) {
@@ -1332,6 +1483,9 @@ public class EmbedlyService {
 			if (response.getString("respcode").equals("00")) {
 				response.put("respCode", CoreConstant.SUCCESS_CODE);
 				response.put("respMessage", CoreConstant.SUCCESS);
+			}else {
+				response.put("respCode", CoreConstant.FAILED);
+				response.put("respMessage", CoreConstant.ERROR);
 			}
 			
 			return response;
