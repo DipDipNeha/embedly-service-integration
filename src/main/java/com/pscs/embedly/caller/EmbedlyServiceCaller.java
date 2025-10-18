@@ -177,7 +177,37 @@ public class EmbedlyServiceCaller {
 		case "MAP_PHYSICAL_AFRIGO_CARD_TO_CUSTOMER":
 			response = EmbedlyService.getInstance().mapPhysicalAfrigoCardToCustomer(request);
 			break;
-			
+		case "CREATE_CORPORATE_USER":
+		    response = EmbedlyService.getInstance().createCorporateUser(request);
+            break;
+		case "GET_CORP_CUST_DETAILS":
+			response = EmbedlyService.getInstance().getCorporateUsers(request);
+			break;
+		case "UPDATE_CORP_CUST_DETAILS":
+			response = EmbedlyService.getInstance().updateCorporateCustDetails(request);
+			break;
+		case "ADD_DIRECTOR_TO_CORPORATE_CUSTOMER":
+			response = EmbedlyService.getInstance().addDirectorToCorporateCustomer(request);
+			break;
+		case "GET_CORPORATE_CUSTOMER_DIRECTOR":
+			response = EmbedlyService.getInstance().getCorporateCustomerDirectors(request);
+			break;
+		case "GET_ALL_DIRECTORS_OF_CORPORATE_CUSTOMER":
+			response = EmbedlyService.getInstance().getAllDirectorsOfCorporateCustomer(request);
+			break;
+		case "UPDATE_CORPORATE_CUSTOMER_DIRECTOR":
+			response = EmbedlyService.getInstance().updateCorporateCustomerDirector(request);
+			break;
+		case "UPLOAD_CORPORATE_CUSTOMER_DOCUMENTS":
+			response = EmbedlyService.getInstance().uploadCorporateCustomerDocuments(request);
+			break;
+		case "UPDATE_CORPORATE_CUSTOMER_DOCUMENTS":
+			response = EmbedlyService.getInstance().updateCorporateCustomerDocuments(request);
+			break;
+		case "GET_CORPORATE_CUSTOMER_DOCUMENTS":
+			response = EmbedlyService.getInstance().getCorporateCustomerDocuments(request);
+			break;
+
 		default:
 			response.put("status", "Unknown request type");
 			break;

@@ -38,8 +38,24 @@ public class EmbedlyServiceTest {
 //		test.getCurrency() ;
 //		test.getWalletRestrictionType();
 //		test.getACClosingReasons();
-		test.walletCreation();
-		//		test.createCorporateCustomerWallet();
+//		test.walletCreation();
+		
+			//create corporate customer
+//			test.createCorporate();
+//			test.getCorpCustomer();
+//			test.updateCorporateCustomer();
+
+//			test.addDirectorToCorporateCustomer();
+//			test.getCorporateCustomerDirector();
+//			test.getAllDirectorsOfCorporateCustomer();
+//			test.updateCorporateCustomerDirector();
+//			test.uploadCorporateCustomerDocuments();
+//			test.updateCorporateCustomerDocuments();
+			test.getCorporateCustomerDoc();
+					
+			
+		
+//				test.createCorporateCustosmerWallet();
 //				test.getWalletId();   ///view wallet balance by walletId
 //				test.getWalletByAcNumber();
 //				test.walletToWalletTransfer();
@@ -423,6 +439,124 @@ public class EmbedlyServiceTest {
 			e.printStackTrace();
 		}
 	}
+	
+	//Corporate  creatation register 
+	public void createCorporate() {
+		try {
+			JSONObject request = new JSONObject();
+			JSONObject response = new JSONObject();
+			JSONObject jheader = new JSONObject();
+
+			jheader.put("userid", "dipak");
+			jheader.put("ip", "133243dsf");
+			jheader.put("timestamp", "1234353454");
+			jheader.put("requestType", "CREATE_CORPORATE_USER");
+			jheader.put("channel", "ADMIN");
+			request.put("jheader", jheader);
+
+			JSONObject jbody = new JSONObject();
+			jbody.put("rcNumber", "RC1234567892");
+			jbody.put("tin", "123234354234");
+			jbody.put("fullBusinessName", "Acme Corporation Demo Test");
+			jbody.put("businessAddress", "MoneyX Ltd,1-3.4/123 Business St, Lagos");
+			jbody.put("countryId", "c15ad9ae-c4d7-4342-b70f-de5508627e3b");
+			jbody.put("city", "lagos");
+			jbody.put("email", "dipakkumar978@gmail.com");
+			jbody.put("walletPreferredName", "AcmeWallet Demo Test");
+			jbody.put("organizationId", "6ca322f8-9547-11f0-a7cf-0274f77d4a81");
+			jbody.put("customerTypeId", "0ed8b99b-8097-4e49-bd4c-ff0410c57d27");
+			jbody.put("customerType","Corporate");
+
+			request.put("jbody", jbody);
+			System.out.println("Request " + request.toString());
+			EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+			response = service.callService(request);
+			System.out.println("Response " + response.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void getCorpCustomer() {
+		try {
+			JSONObject request = new JSONObject();
+			JSONObject response = new JSONObject();
+			JSONObject jheader = new JSONObject();
+
+			jheader.put("userid", "dipak");
+			jheader.put("ip", "133243dsf");
+			jheader.put("timestamp", "1234353454");
+			jheader.put("requestType", "GET_CORP_CUST_DETAILS");
+			jheader.put("channel", "ADMIN");
+			request.put("jheader", jheader);
+
+			JSONObject jbody = new JSONObject();
+			jbody.put("customerId", "62935426-1845-4fcf-87aa-9216a18af747");
+			jbody.put("customerType","Indivivual");
+
+			request.put("jbody", jbody);
+			System.out.println("Request " + request.toString());
+			EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+			response = service.callService(request);
+			System.out.println("Response " + response.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	// update corporate customer details
+	public void updateCorporateCustomer() {
+		try {
+			JSONObject request = new JSONObject();
+			JSONObject response = new JSONObject();
+			JSONObject jheader = new JSONObject();
+
+			jheader.put("userid", "dipak");
+			jheader.put("ip", "133243dsf");
+			jheader.put("timestamp", "1234353454");
+			jheader.put("requestType", "UPDATE_CORP_CUST_DETAILS");
+			jheader.put("channel", "ADMIN");
+			request.put("jheader", jheader);
+
+			JSONObject jbody = new JSONObject();
+
+
+			jbody.put("rcNumber", "RC1234567890");
+			jbody.put("tin", "1232343543645");
+			jbody.put("fullBusinessName", "Acme Corporation Updated");
+			jbody.put("businessAddress", "MoneyX Ltd, 123 Business St, Lagos Updated");
+			jbody.put("countryId", "c15ad9ae-c4d7-4342-b70f-de5508627e3b");
+			jbody.put("city", "1232343543645");
+			jbody.put("email", "dipak@gmail.com");
+			jbody.put("walletPreferredName", "AcmeWalletUpdated");
+			jbody.put("customerId", "eyfgtusvcdsvbjbdfbsdfbjs");
+			
+			
+
+			request.put("jbody", jbody);
+			System.out.println("Request " + request.toString());
+			EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+			response = service.callService(request);
+			System.out.println("Response " + response.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//wallet creation service 
 	public void getCurrency() {
@@ -1639,5 +1773,239 @@ public void mapPhysicalAfrigoCardToCustomer() {
         e.printStackTrace();
     }
 }
-//
+
+
+//Add Director to Corporate Customer
+public void addDirectorToCorporateCustomer() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "ADD_DIRECTOR_TO_CORPORATE_CUSTOMER");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+
+        jbody.put("firstName", "Michael");
+        jbody.put("lastName", "Smith");
+        jbody.put("middleName", "J");
+		jbody.put("email", "Dipak@gmail.com");
+		jbody.put("phoneNumber", "+919876543210");
+		jbody.put("dateOfBirth", "1985-06-15");
+		jbody.put("address", "456 Elm St, City, Country");
+		jbody.put("bvn", "12345678901");
+		jbody.put("nin", "A1234567890");
+		jbody.put("meterNumber", "MTR1234567");
+		        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+		
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+//Get A Corporate Customer Director
+public void getCorporateCustomerDirector() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_CORPORATE_CUSTOMER_DIRECTOR");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+//        {customerId}/directors/{directorId}
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("directorId", "d1f5e6d2-9629-11f0-a7cf-0274f77d4a81");
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+}
+//Get All Directors of a Corporate Customer
+public void getAllDirectorsOfCorporateCustomer() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_ALL_DIRECTORS_OF_CORPORATE_CUSTOMER");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+}
+//Update Corporate Customer Director
+public void updateCorporateCustomerDirector() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "UPDATE_CORPORATE_CUSTOMER_DIRECTOR");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+
+        jbody.put("firstName", "Michael");
+        jbody.put("lastName", "Johnson");
+        jbody.put("middleName", "K");
+        jbody.put("email", "dipak@gmail.com");
+        jbody.put("phoneNumber", "+919876543211");
+        jbody.put("dateOfBirth", "1985-07-20");
+        jbody.put("address", "789 Pine St, City, Country");
+        jbody.put("bvn", "10987654321");
+        jbody.put("nin", "B0987654321");
+        jbody.put("meterNumber", "MTR7654321");
+//        {customerId}/directors/{directorId}
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        jbody.put("directorId", "d1f5e6d2-9629-11f0-a7cf-0274f77d4a81");
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+        } catch (Exception e) {
+        	e.printStackTrace();
+        		
+        }
+}
+
+
+//Upload Corporate Customer Documents
+public void uploadCorporateCustomerDocuments() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "UPLOAD_CORPORATE_CUSTOMER_DOCUMENTS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("cac", "base64EncodedStringForCACDocument");
+        jbody.put("tin", "base64EncodedStringForTINDocument");
+        jbody.put("boardResolution", "base64EncodedStringForBoardResolutionDocument");
+        jbody.put("utilityBill", "base64EncodedStringForUtilityBillDocument");
+        jbody.put("memart", "base64EncodedStringForMemartDocument");
+        jbody.put("scuml", "base64EncodedStringForSCUMLDocument");
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+        } catch (Exception e) {
+        	e.printStackTrace();
+        		
+        }
+}
+
+// Update Corporate Customer Documents
+public void updateCorporateCustomerDocuments() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "UPDATE_CORPORATE_CUSTOMER_DOCUMENTS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+        jbody.put("cac", "updatedBase64EncodedStringForCACDocument");
+        jbody.put("tin", "updatedBase64EncodedStringForTINDocument");
+        jbody.put("boardResolution", "updatedBase64EncodedStringForBoardResolutionDocument");
+        jbody.put("utilityBill", "updatedBase64EncodedStringForUtilityBillDocument");
+        jbody.put("memart", "updatedBase64EncodedStringForMemartDocument");
+        jbody.put("scuml", "updatedBase64EncodedStringForSCUMLDocument");
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+        } catch (Exception e) {
+        	e.printStackTrace();
+        		
+        }
+}
+
+//Get Corporate Customer Documents
+public void getCorporateCustomerDoc() {
+    try {
+        JSONObject request = new JSONObject();
+        JSONObject response = new JSONObject();
+        JSONObject jheader = new JSONObject();
+
+        jheader.put("userid", "dipak");
+        jheader.put("ip", "133243dsf");
+        jheader.put("timestamp", "1234353454");
+        jheader.put("requestType", "GET_CORPORATE_CUSTOMER_DOCUMENTS");
+        jheader.put("channel", "ADMIN");
+        request.put("jheader", jheader);
+
+        JSONObject jbody = new JSONObject();
+
+      
+        jbody.put("customerId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
+        request.put("jbody", jbody);
+        System.out.println("Request " + request.toString());
+        EmbedlyServiceCaller service = new EmbedlyServiceCaller();
+        response = service.callService(request);
+        System.out.println("Response " + response.toString());
+        } catch (Exception e) {
+        	e.printStackTrace();
+        		
+        }
+}
+
 }

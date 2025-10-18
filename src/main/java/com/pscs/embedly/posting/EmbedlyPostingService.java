@@ -371,6 +371,7 @@ public class EmbedlyPostingService {
 	    return responseJson;
 	}
 
+
 	
 //
 //	public JSONObject sendPatchRequest(String jsonBody, String urlType, String params, String fieldName) {
@@ -433,4 +434,75 @@ public class EmbedlyPostingService {
 //
 //		return responseJson;
 //	}
+	
+	
+	
+	
+	// Create Put Method Request service
+	public JSONObject sendPutRequest(String jsonBody, String urlType, String params, String fieldName) {
+	    JSONObject responseJson = new JSONObject();
+	    try {
+	        String apiKey = bundle.getString("API_KEY");
+	        String url = bundle.getString(urlType).concat(params);
+	        if (fieldName != null && !fieldName.isEmpty() && !fieldName.isBlank()) {
+	            url = url + "/" + fieldName;
+	        }
+
+	        System.out.println("Final URL " + url);
+	        logger.info("Embedly PATCH URL " + url + "\nApi Key: " + apiKey + "\nRequest: " + jsonBody);
+
+	        RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
+	        HttpHeaders headers = new HttpHeaders();
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("x-api-key", apiKey);
+
+	        HttpEntity<String> entity = new HttpEntity<>(jsonBody, headers);
+	        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
+
+	        HttpStatusCode statusCode = response.getStatusCode();
+	        int value = statusCode.value();
+	        logger.info("Embedly Response Code: " + value);
+	        System.out.println("Response Code: " + value);
+
+	        if (response.getBody() == null) {
+	            responseJson.put("respcode", "500");
+	            responseJson.put("respmsg", "No response from Embedly service");
+	            responseJson.put("data", JSONObject.NULL);
+	            return responseJson;
+	        }
+
+	        JSONObject responseBody = new JSONObject(response.getBody());
+	        if (value == 200) {
+	            logger.info("Embedly Response Body: " + response.getBody());
+	            responseJson.put("respcode", "00");
+	            responseJson.put("respmsg", "SUCCESS");
+	            responseJson.put("data", responseBody.opt("data"));
+	        } else {
+	            responseJson.put("respcode", String.valueOf(value));
+	            responseJson.put("respmsg", responseBody.optString("message", "Failed"));
+	            responseJson.put("data", responseBody.opt("data"));
+	        }
+
+	    } catch (HttpClientErrorException e) {
+	        logger.error("HTTP Client Error: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
+	        try {
+	            JSONObject errorBody = new JSONObject(e.getResponseBodyAsString());
+	            responseJson.put("respcode", String.valueOf(e.getStatusCode().value()));
+	            responseJson.put("respmsg", errorBody.optString("message", "Client Error"));
+	            responseJson.put("data", errorBody.opt("data"));
+	        } catch (Exception parseEx) {
+	            responseJson.put("respcode", String.valueOf(e.getStatusCode().value()));
+	            responseJson.put("respmsg", "Client Error");
+	            responseJson.put("data", e.getResponseBodyAsString());
+	        }
+
+	    } catch (Exception e) {
+	        logger.error("Unexpected Error", e);
+	        responseJson.put("respcode", "500");
+	        responseJson.put("respmsg", "Internal Server Error");
+	        responseJson.put("data", e.getMessage());
+	    }
+
+	    return responseJson;
+	}
 }
