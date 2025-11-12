@@ -9,7 +9,6 @@ package com.pscs.embedly.caller;
 
 import org.json.JSONObject;
 
-import com.pscs.embedly.db.TrackEmbedlyService;
 import com.pscs.embedly.services.EmbedlyService;
 
 /**
@@ -177,7 +176,7 @@ public class EmbedlyServiceCaller {
 		case "MAP_PHYSICAL_AFRIGO_CARD_TO_CUSTOMER":
 			response = EmbedlyService.getInstance().mapPhysicalAfrigoCardToCustomer(request);
 			break;
-		case "CREATE_CORPORATE_USER":
+		case "REGISTER_CORPORATE_USER":
 		    response = EmbedlyService.getInstance().createCorporateUser(request);
             break;
 		case "GET_CORP_CUST_DETAILS":

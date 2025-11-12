@@ -27,7 +27,7 @@ public class EmbedlyServiceTest {
 //		test.createCustomer();
 //		 test.getCustomerDetails();
 //		test.getCustomerAllDetails();
-//		test.updateCustomerName();
+		test.updateCustomerName();
 //		test.updateContactDetails();
 //		test.getCustEkycProperties();// check customer ekyc status
 //		test.customerKycUpgrade(); //nin
@@ -49,15 +49,15 @@ public class EmbedlyServiceTest {
 //			test.getCorporateCustomerDirector();
 //			test.getAllDirectorsOfCorporateCustomer();
 //			test.updateCorporateCustomerDirector();
-//			test.uploadCorporateCustomerDocuments();
+			test.uploadCorporateCustomerDocuments();
 //			test.updateCorporateCustomerDocuments();
-			test.getCorporateCustomerDoc();
+//			test.getCorporateCustomerDoc();
 					
 			
 		
-//				test.createCorporateCustosmerWallet();
+//				test.createCorporateCustomerWallet();
 //				test.getWalletId();   ///view wallet balance by walletId
-//				test.getWalletByAcNumber();
+				test.getWalletByAcNumber();
 //				test.walletToWalletTransfer();
 		//		test.getOrgWalletTransactions();
 //				test.walletToWalletRequery();
@@ -450,7 +450,7 @@ public class EmbedlyServiceTest {
 			jheader.put("userid", "dipak");
 			jheader.put("ip", "133243dsf");
 			jheader.put("timestamp", "1234353454");
-			jheader.put("requestType", "CREATE_CORPORATE_USER");
+			jheader.put("requestType", "REGISTER_CORPORATE_USER");
 			jheader.put("channel", "ADMIN");
 			request.put("jheader", jheader);
 
@@ -693,9 +693,9 @@ public class EmbedlyServiceTest {
 
             JSONObject jbody = new JSONObject();
             //unique id generate
-            jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
+            jbody.put("customerId", "62935426-1845-4fcf-87aa-9216a18af747");
             jbody.put("currencyId", "fd5e474d-bb42-4db1-ab74-e8d2a01047e9");
-            jbody.put("name", "Primary Wallet");
+            jbody.put("name", "Nigeria Naira");
             
 
             request.put("jbody", jbody);
@@ -753,7 +753,7 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("accountNumber", "9710007990");
+			jbody.put("accountNumber", "9710009505");
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -845,7 +845,7 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("transactionReference", "TXN1677054323457");
+			jbody.put("transactionId", "TXN1677054323457");
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -872,11 +872,12 @@ public class EmbedlyServiceTest {
 
 			JSONObject jbody = new JSONObject();
 
-			jbody.put("customerId", "792c446e-9954-11f0-a7cf-0274f77d4a81");
-			jbody.put("organizationId", "a8f4cd75-9629-11f0-a7cf-0274f77d4a81");
 			jbody.put("walletId", "ea9a5cb9-9955-11f0-a7cf-0274f77d4a81");
-			jbody.put("from", "2023-12-31");
-			jbody.put("to", "2025-12-31");
+			jbody.put("From", "2023-12-31");
+			jbody.put("To", "2025-12-31");
+			jbody.put("Page", 1);
+			jbody.put("PageSize", 10);
+			
 
 			request.put("jbody", jbody);
 			System.out.println("Request " + request.toString());
@@ -1312,7 +1313,7 @@ public void retrieveLimitOfProductAndCurrency() {
         jheader.put("userid", "dipak");
         jheader.put("ip", "133243dsf");
         jheader.put("timestamp", "1234353454");
-        jheader.put("requestType", "RETRIEVE_LIMIT_OF_PRODUCT_AND_CURRENCY");
+        jheader.put("requestType", "RET_LIM_OF_PROD_AND_CURNCY");
         jheader.put("channel", "ADMIN");
         request.put("jheader", jheader);
 
